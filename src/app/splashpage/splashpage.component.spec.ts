@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SplashPageComponent } from './splashpage.component';
+import { compileDirectiveFromMetadata } from '@angular/compiler';
 
 describe('SplashPageComponent', () => {
   let component: SplashPageComponent;
@@ -24,7 +25,12 @@ describe('SplashPageComponent', () => {
   });
 
   it('should display my name', () => {
-    expect(component.myName).toContain("Naufal Fikri");
+    expect(component.myName).toContain('Naufal Fikri');
+  });
+
+  it('should display the navigation bar', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.coolnav')).toBeTruthy();
   });
 
 
