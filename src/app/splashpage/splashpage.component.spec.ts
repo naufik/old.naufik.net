@@ -26,6 +26,8 @@ describe('SplashPageComponent', () => {
 
   it('should display my name', () => {
     expect(component.myName).toContain('Naufal Fikri');
+    const compiled: Element = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.main-header > h1').innerHTML).toContain('Naufal Fikri');
   });
 
   it('should display the navigation bar', () => {
