@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 
 @Component({
@@ -7,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  displayPageDecorations = false;
 
+  constructor(private routing: Router) {
+    routing.events.subscribe((e) => {
+      if (e instanceof NavigationStart) {
+        this.displayPageDecorations = e.url !== '/';
+      }
+    });
+  }
 }
