@@ -12,6 +12,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require("karma-junit-reporter"),
       require('karma-jasmine-html-reporter'),
+      require('karma-jsdom-launcher'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
@@ -28,13 +29,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeNoSandbox'],
-    customLaunchers: {
-      ChromeNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox', '--disable-gpu'],
-      },
-    },
+    browsers: ['jsdom'],
     singleRun: true,
     restartOnFileChange: true,
     junitReporter: {
