@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SplashPageComponent } from './splashpage.component';
 import { compileDirectiveFromMetadata } from '@angular/compiler';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SplashPageComponent', () => {
   let component: SplashPageComponent;
@@ -9,7 +10,8 @@ describe('SplashPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SplashPageComponent ]
+      declarations: [ SplashPageComponent ],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));
