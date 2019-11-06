@@ -6,12 +6,12 @@ pipeline {
       steps {
         sh 'npm install'
         sh 'ng test --karmaConfig=karma.jenkins.conf.js'
+        junit '**/test-results.xml'
       }
     }
     stage('Production Grade Build') {
       steps {
         sh 'ng build --prod'
-        junit '**/test-results.xml'
       }
     }
     stage('Staging') {
