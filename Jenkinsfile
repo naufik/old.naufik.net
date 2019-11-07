@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Post-Build') {
       steps {
-        archive includes: "dist/**/*"
+        archiveArtifacts artifacts:"dist/**/*.*", excludes: "dist/**/thirdpartylicenses.txt"
       }
     }
   }
