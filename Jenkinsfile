@@ -14,14 +14,9 @@ pipeline {
         sh 'ng build --prod'
       }
     }
-    stage('Staging') {
-      steps {
-        input 'Is this OK?'
-      }
-    }
     stage('Post-Build') {
       steps {
-        archiveArtifacts artifacts:"dist/**/*.*", excludes: "dist/**/thirdpartylicenses.txt"
+        archiveArtifacts artifacts:"dist/**/*.*", excludes: "dist/**/3rdpartylicenses.txt"
       }
     }
   }
