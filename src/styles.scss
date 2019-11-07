@@ -1,15 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-a {
-    color: black;
-}
-
 a:hover {
     color: white;
     background: black;
 }
 
-img a > :hover {
+a:hover:visited {
+  color: white;
+  background: black;
+}
+
+
+a.imglink {
   background: white;
   color: white;
+}
+
+a:visited {
+  color: black;
+  background: white;
 }
