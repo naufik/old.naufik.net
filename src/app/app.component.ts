@@ -12,7 +12,7 @@ export class AppComponent {
 
   constructor(private routing: Router) {
     routing.events.subscribe((e) => {
-      if (e instanceof NavigationStart) {
+      if (e instanceof NavigationEnd) {
         this.displayPageDecorations = e.url !== '/';
       }
     });
