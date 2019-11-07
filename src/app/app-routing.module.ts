@@ -8,6 +8,9 @@ const routes: Routes = [{
   path: '',
   component: SplashPageComponent
 }, {
+  path: 'resume',
+  loadChildren: () => import('./page-resume/page-resume.module').then(mod => mod.PageResumeModule),
+}, {
   path: '**',
   component: NotFoundComponent
 }];

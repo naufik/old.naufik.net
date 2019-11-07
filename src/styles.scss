@@ -8,3 +8,8 @@ a:hover {
     color: white;
     background: black;
 }
+
+img a > :hover {
+  background: white;
+  color: white;
+}

@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { SplashPageComponent } from './splashpage/splashpage.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SplashPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
