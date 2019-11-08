@@ -1,0 +1,16 @@
+h1 {
+  vertical-align: center;
+}
+
+.header-top-container {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+}
+
+.header-top-container > h1 {
+  padding-left: 20px;
+}
+
+.header-nav {
+  grid-column: 2 / span 1;
+}

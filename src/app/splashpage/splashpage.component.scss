@@ -23,12 +23,12 @@ $broken_link: red;
   font-size: 18px;
 }
 
-@media(min-width: 600px) {
+@media(min-width: 1000px) {
   .splash-container {
     display: grid;
     margin: auto;
     grid-template-columns: 1fr 300px minmax(200px, 600px) 1fr;
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   .main-header {
@@ -52,6 +52,12 @@ $broken_link: red;
       vertical-align: text-bottom;
     }
   }
+  .message {
+    margin-top: 5px;
+    background: azure;
+    border: 2px solid orangered;
+    text-align: center;
+  }
 }
 
 a.wip {
@@ -64,8 +70,8 @@ a.wip:hover {
 }
 
 div.coolnav {
-    font-family: monospace;
-    font-size: 15px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 18px;
     margin-top: 30px;
     width: 100%;
     text-align: center;
