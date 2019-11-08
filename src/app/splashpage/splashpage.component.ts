@@ -16,6 +16,7 @@ export class SplashPageComponent implements OnInit {
   }
 
   copyEmail() {
+    // Copies email to the user's clipboard.
     if (!this.displayCopyMessage) {
       const createCopy = (e: ClipboardEvent) => {
         e.clipboardData.setData('text/plain', 'naufal@naufik.net');
