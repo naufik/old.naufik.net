@@ -14,10 +14,11 @@ export class ShowcaseComponent implements OnInit {
     },
     {
       title: 'Shadow Blocks',
-      url: 'http://naufik.net',
+      url: 'https://github.com/naufik/swen20003-shadow-blocks'
     },
     {
-      title: 'We\'ll Figure it Out'
+      title: 'We\'ll Figure it Out',
+      description: 'Really old assignment.'
     }
   ];
 
