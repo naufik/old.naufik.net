@@ -60,15 +60,6 @@ $broken_link: red;
   }
 }
 
-a.wip {
-    color: $broken_link;
-}
-
-a.wip:hover {
-    background: $broken_link;
-    color: white;
-}
-
 div.coolnav {
     font-family: 'Inconsolata', monospace;
     font-size: 18px;

@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:400,700&display=swap');
 
+$broken_link: red;
+
 a:hover {
     color: white;
     background: black;
@@ -29,4 +31,13 @@ a:visited {
 
 app-root div {
   font-family: 'Open Sans', sans-serif;
+}
+
+a.wip {
+  color: $broken_link;
+}
+
+a.wip:hover {
+  background: $broken_link;
+  color: white;
 }
