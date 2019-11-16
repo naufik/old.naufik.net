@@ -1,4 +1,9 @@
   <div class="showcase-card">
-    <h2><a [href]="link">{{ title }}</a></h2>
-    <p>{{ description }}</p>
+    <div class="img-container">
+      <img class="showcase-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQv40Zh6UwSbYoAunUW6SUYIOPzMZSAuoU_Ehhb4OOD7bgFb3ye"/>
+    </div>
+    <div>
+      <h2><a [routerLink]="link">{{ title }}</a></h2>
+      <div class="showcase-desc"><p>{{ description }}</p></div>
+    </div>
   </div>

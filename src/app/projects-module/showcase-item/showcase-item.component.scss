@@ -1,9 +1,17 @@
 .showcase-card {
-  border: 1px solid black;
+  border: 1px solid darkgrey;
   margin-bottom: 5px;
   margin-right: 5px;
-  box-shadow: 4px 4px aquamarine;
+  box-shadow: 4px 4px 3px darkslateblue;
   min-height: 200px;
+  max-height: 200px;
+  display: grid;
+  grid-template-columns: minmax(100px, 200px) 1fr;
+  min-width: 400px;
+
+  > .img-container {
+    overflow: hidden;
+  }
 
   h2, p {
     padding-left: 10px;
@@ -12,10 +20,11 @@
 
   h2 {
     margin-top: 0px;
+    font-weight: 400;
   }
 
   a {
-    text-decoration: underline;
+    text-decoration: none;
     color: black;
   }
 
@@ -23,4 +32,19 @@
     color: white;
     background: black;
   }
+
+  .showcase-desc {
+    margin-right: 20px;
+    margin-top: 0px;
+  }
 }
+
+.showcase-card:hover {
+  box-shadow: 1px 1px 18px darkslateblue;
+}
+
+.showcase-img {
+  mask: linear-gradient(to right, black 130px, transparent 200px);
+  height: 200px;
+}
+
