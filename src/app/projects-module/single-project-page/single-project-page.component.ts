@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'naufik-single-project-page',
@@ -7,11 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleProjectPageComponent implements OnInit {
 
-  title: string = 'Project T';
+  title = 'waiting';
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  public pathExists(path: string) {
+    // TODO: To be replaced.
+    return true;
+  }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      if (!this.pathExists(params.get('id'))) {
+        this.router.navigate(['/not-found']);
+      }
+      this.title = params.get('id').split('-').join(' ');
+    });
   }
 
 }

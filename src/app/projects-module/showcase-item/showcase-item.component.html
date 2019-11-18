@@ -6,9 +6,9 @@
       <h2><a [routerLink]="'view/' + data.url">{{ data.title }}</a></h2>
       <div class="showcase-desc">
         <p>{{ data.description }}</p>
-        <div *ngIf="data.tags"><strong>Tags: </strong>
+        <div *ngIf="data.tags"><p><strong>Tags: </strong>
           <span  *ngFor="let tagstr of data.tags">
-            <span class=".tag" style="color: white; background: slateblue;">{{ tagstr }}</span>{{ " " }}</span>
+            <span class="tag">{{ tagstr }}</span>{{ " " }}</span></p>
           </div>
       </div>
       </div>
