@@ -3,7 +3,7 @@
       <img class="showcase-img" [src]="data.imgUrl"/>
     </div>
     <div>
-      <h2><a [routerLink]="data.url">{{ data.title }}</a></h2>
+      <h2><a [routerLink]="'view/' + data.url">{{ data.title }}</a></h2>
       <div class="showcase-desc">
         <p>{{ data.description }}</p>
         <div *ngIf="data.tags"><strong>Tags: </strong>
