@@ -13,13 +13,11 @@
     overflow: hidden;
   }
 
-  h2, p {
+  h2, div.showcase-desc {
     padding-left: 10px;
-
   }
 
   h2 {
-    margin-top: 0px;
     font-weight: 400;
   }
 
@@ -36,6 +34,11 @@
   .showcase-desc {
     margin-right: 20px;
     margin-top: 0px;
+  }
+
+  .tag {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 }
 

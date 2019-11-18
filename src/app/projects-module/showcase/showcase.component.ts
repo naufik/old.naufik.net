@@ -37,6 +37,7 @@ export class ShowcaseComponent implements OnInit {
     {
       title: 'TripleZero',
       url: 'triple-zero',
+      imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6l8Qqsvq_15olRm3_kMdVXBT993dzx-wPxHrpl41WyhmjSHhC',
       description: 'From Melbourne Games Week Hackathon! An Alexa-powered emergency dispatcher game.'
     },
     {
