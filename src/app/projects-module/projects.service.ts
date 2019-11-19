@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProjectsModule } from './projects.module';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,7 @@ export class ProjectsService {
     {
       title: 'Shadow Blocks',
       url: 'shadow-blocks',
+      content: '<p class="wip">hello</p>',
       description: 'I am super proud of this one! Java and Slick2D game ' +
         'submitted for subject (Object Oriented Software Development). Won an award!',
       imgUrl: 'https://i.imgur.com/IPtzzIM.png',
@@ -84,7 +86,20 @@ export class ProjectsService {
   public isValidProjectsRoute(key: string) {
     return this.titles.has(key);
   }
-  constructor() {
+
+  public getContent(key: string) {
+    const maybeData = this.getData().filter(x => x.url === key);
+
+    return maybeData.length !== 1 ? null : maybeData[0];
+  }
+
+  public getPageBody(key: string) {
+    // this will be changed into something better later on.
+    return this.http.get('https://naufik.net/stash/temp/' + key + '.frag.html',
+      { responseType: 'text', observe: 'response' });
+  }
+
+  constructor(private http: HttpClient) {
     this.titles = new Set(this.getData().filter(x => !x.hidden).map(x => x.url));
   }
 }

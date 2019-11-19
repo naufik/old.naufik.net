@@ -3,8 +3,9 @@
   margin-bottom: 5px;
   margin-right: 5px;
   box-shadow: 4px 4px 3px darkslateblue;
+  // height: minmax(200px, 100%);
   min-height: 200px;
-  max-height: 200px;
+  // max-height: 200px;
   display: grid;
   grid-template-columns: minmax(100px, 200px) 1fr;
   min-width: 400px;

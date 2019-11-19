@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import { ProjectsService } from '../projects.service';
 
 @Component({
@@ -10,21 +9,39 @@ import { ProjectsService } from '../projects.service';
 })
 export class SingleProjectPageComponent implements OnInit {
 
-  title = 'waiting';
+  htmlContent = '';
+  projectContent;
+  pageKey;
 
   constructor(private router: Router, private route: ActivatedRoute, private projects: ProjectsService) { }
 
   public pathExists(path: string) {
-    console.log(path);
     return this.projects.isValidProjectsRoute(path);
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      if (!this.pathExists(params.get('id'))) {
+      this.pageKey = params.get('id');
+
+      if (!this.pathExists(this.pageKey)) {
         this.router.navigate(['/not-found']);
       }
-      this.title = params.get('id').split('-').join(' ');
+      this.projectContent = this.projects.getContent(this.pageKey);
+
+      this.projects.getPageBody(this.pageKey)
+        .subscribe(
+          (data) => {
+            if (data.status === 404) {
+              this.htmlContent = 'Something went wrong on our end.';
+              return;
+            }
+            this.htmlContent = data.body.toString();
+          },
+          (err) => {
+            if (err.status === 404) {
+              this.htmlContent = this.projectContent.description;
+            }
+          });
     });
   }
 
