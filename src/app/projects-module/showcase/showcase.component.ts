@@ -13,7 +13,7 @@ export class ShowcaseComponent implements OnInit {
   constructor(private projects: ProjectsService) { }
 
   getDataToShow() {
-    return this.projects.getDummyData().filter(x => !x.hidden);
+    return this.projects.getData().filter(x => !x.hidden);
   }
   ngOnInit() {
   }

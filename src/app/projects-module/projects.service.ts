@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { ConsoleReporter } from 'jasmine';
 
 export interface ProjectsList {
-  projects: any[];
+  projects: ProjectData[];
 }
 
 export interface ProjectData {
@@ -17,7 +18,7 @@ export interface ProjectData {
   providedIn: 'root'
 })
 export class ProjectsService {
-  readonly MODE = 'DEBUG';
+  readonly MODE: 'PROD' | 'DEBUG' = 'PROD';
   readonly DATA_SRC = 'https://naufik.net/stash/projects.json';
 
   data = [];
@@ -114,8 +115,11 @@ export class ProjectsService {
   constructor(private http: HttpClient) {
     this.titles = new Set(this.getData().filter(x => !x.hidden).map(x => x.url));
 
-    this.http.get(this.DATA_SRC, { observe: 'response' }).subscribe((data: HttpResponse<ProjectsList>) => {
-      this.data = data.body.projects;
-    });
+    if (this.MODE === 'PROD') {
+      this.http.get(this.DATA_SRC, { observe: 'response' }).subscribe((data: HttpResponse<ProjectsList>) => {
+        this.data = data.body.projects;
+        this.titles = new Set(this.getData().filter(x => !x.hidden).map(x => x.url));
+      });
+    }
   }
 }
