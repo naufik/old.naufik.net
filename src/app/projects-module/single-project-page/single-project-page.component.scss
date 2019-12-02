@@ -1,5 +1,12 @@
-article {
+.article {
   > h1 {
     font-size: 30px;
   }
+  ::ng-deep .center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
+
+
