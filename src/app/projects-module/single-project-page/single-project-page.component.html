@@ -1,4 +1,4 @@
 <article class="article project">
-  <h1>{{ projectContent.title }}</h1>
+  <h1>{{ projectContent === null ? ' ' : projectContent.title }}</h1>
   <p [innerHTML]="htmlContent"></p>
 </article>

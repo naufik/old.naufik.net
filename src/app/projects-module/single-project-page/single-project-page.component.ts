@@ -10,8 +10,8 @@ import { ProjectsService } from '../projects.service';
 export class SingleProjectPageComponent implements OnInit {
 
   htmlContent = '';
-  projectContent;
-  pageKey;
+  projectContent = null;
+  pageKey = '';
 
   constructor(private router: Router, private route: ActivatedRoute, private projects: ProjectsService) { }
 
