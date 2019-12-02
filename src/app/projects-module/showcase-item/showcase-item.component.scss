@@ -12,6 +12,8 @@
 
   > .img-container {
     overflow: hidden;
+    height: 100%;
+    max-height: 200px;
   }
 
   h2, div.showcase-desc {
@@ -51,6 +53,6 @@
 
 .showcase-img {
   mask: linear-gradient(to right, black 160px, rgba(0,0,0,0.0) 202px);
-  height: 200px;
+  height: 100%;
 }
 

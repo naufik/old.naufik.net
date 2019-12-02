@@ -1,15 +1,17 @@
-  <div class="showcase-card">
+<!-- <a [routerLink]="'view/' + data.url"> -->
+  <div class="showcase-card clickable" [routerLink]="'view/' + data.url">
     <div class="img-container">
       <img class="showcase-img" [src]="data.imgUrl"/>
     </div>
-    <div>
-      <h2><a [routerLink]="'view/' + data.url">{{ data.title }}</a></h2>
-      <div class="showcase-desc">
-        <p>{{ data.description }}</p>
-        <div *ngIf="data.tags"><p><strong>Tags: </strong>
-          <span  *ngFor="let tagstr of data.tags">
-            <span class="tag">{{ tagstr }}</span>{{ " " }}</span></p>
-          </div>
+      <div>
+        <h2>{{ data.title }}</h2>
+        <div class="showcase-desc">
+          <p>{{ data.description }}</p>
+          <div *ngIf="data.tags"><p><strong>Tags: </strong>
+            <span  *ngFor="let tagstr of data.tags">
+              <span class="tag">{{ tagstr }}</span>{{ " " }}</span></p>
+            </div>
+        </div>
       </div>
-      </div>
-  </div>
+    </div>
+  <!-- </a> -->

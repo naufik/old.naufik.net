@@ -3,6 +3,8 @@
 
 $broken_link: red;
 
+/** For non-img links */
+
 a:hover {
     color: white;
     background: black;
@@ -13,6 +15,30 @@ a:hover:visited {
   background: black;
 }
 
+a:visited {
+  color: black;
+  background: white;
+}
+
+a.wip {
+  color: $broken_link;
+}
+
+a.wip:hover {
+  background: $broken_link;
+  color: white;
+}
+
+/** Other elements */
+
+.clickable {
+  cursor: pointer;
+  // p {
+  //   cursor: default;
+  // }
+}
+
+/** For image links */
 
 a.imglink {
   background: white;
@@ -24,20 +50,8 @@ a.imglink:hover {
   color: white;
 }
 
-a:visited {
-  color: black;
-  background: white;
-}
+/** Miscellaneous */
 
 app-root div {
   font-family: 'Open Sans', sans-serif;
-}
-
-a.wip {
-  color: $broken_link;
-}
-
-a.wip:hover {
-  background: $broken_link;
-  color: white;
 }
