@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { ConsoleReporter } from 'jasmine';
 
 export interface ProjectsList {
   projects: ProjectData[];
@@ -9,8 +8,10 @@ export interface ProjectsList {
 export interface ProjectData {
   title: string;
   description: string;
-  imgUrl: string;
-  tags: string;
+  imgUrl?: string;
+  tags?: string[];
+  hidden?: boolean;
+  content?: string;
   url: string;
 }
 
@@ -21,11 +22,12 @@ export class ProjectsService {
   readonly MODE: 'PROD' | 'DEBUG' = 'PROD';
   readonly DATA_SRC = 'https://naufik.net/stash/projects.json';
 
-  data = [];
+  loaded = false;
+  data: ProjectData[] = [];
 
   private titles: Set<string>;
 
-  dummy = [
+  dummy: ProjectData[] = [
     {
       title: 'This Website',
       url: 'naufik-net-website',
@@ -96,7 +98,10 @@ export class ProjectsService {
     return this.MODE === 'DEBUG' ? this.getDummyData() : this.data;
   }
 
-  public isValidProjectsRoute(key: string) {
+  public async isValidProjectsRoute(key: string) {
+    if (!this.loaded) {
+      await this.loadRemoteData();
+    }
     return this.titles.has(key);
   }
 
@@ -116,10 +121,21 @@ export class ProjectsService {
     this.titles = new Set(this.getData().filter(x => !x.hidden).map(x => x.url));
 
     if (this.MODE === 'PROD') {
-      this.http.get(this.DATA_SRC, { observe: 'response' }).subscribe((data: HttpResponse<ProjectsList>) => {
-        this.data = data.body.projects;
-        this.titles = new Set(this.getData().filter(x => !x.hidden).map(x => x.url));
-      });
+      this.loadRemoteData();
     }
+  }
+
+  private async loadRemoteData() {
+    const getReq = this.http.get(this.DATA_SRC, { observe: 'response' });
+
+    getReq.subscribe((data: HttpResponse<ProjectsList>) => {
+      this.data = data.body.projects;
+      this.titles = new Set(this.getData().filter(x => !x.hidden).map(x => x.url));
+    });
+
+    return getReq.toPromise().then((x) => {
+      this.loaded = true;
+      return x;
+    });
   }
 }
