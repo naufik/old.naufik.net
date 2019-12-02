@@ -4,14 +4,20 @@ h1 {
 
 .header-top-container {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   margin-left: 10px;
 }
 
 .header-nav {
-  grid-column: 1 / span 2;
+  display: table;
+  span {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: normal;
+  }
   font-weight: 700;
   font-family: 'Inconsolata', sans-serif;
+  font-size: 18px;
   padding-left: 10px;
 }
 
