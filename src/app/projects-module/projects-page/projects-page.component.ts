@@ -7,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsPageComponent implements OnInit {
 
-  constructor() { }
-  wwww = 'x';
 
-  dos() {
-    this.wwww += 'x';
-  }
+  decorated = false;
+
+  constructor() { }
+
 
   ngOnInit() {
   }

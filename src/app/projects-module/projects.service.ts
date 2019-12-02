@@ -16,8 +16,8 @@ export class ProjectsService {
     {
       title: 'This Website',
       url: 'naufik-net-website',
-      description: 'Yes, this, very website built using Angular and APIs.',
-      imgUrl: 'https://whatson.melbourne.vic.gov.au/Placestogo/MelbourneLandmarks/Historic/PublishingImages/16223Large.jpg',
+      description: 'This very portfolio website.',
+      imgUrl: 'https://naufik.net/stash/madebymygf.png',
       tags: ['angular', 'portfolio', 'web'],
       hidden: false
     },
