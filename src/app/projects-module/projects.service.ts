@@ -1,12 +1,24 @@
 import { Injectable } from '@angular/core';
-import { ProjectsModule } from './projects.module';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+
+export interface ProjectsList {
+  projects: any[];
+}
+
+export interface ProjectData {
+  title: string;
+  description: string;
+  imgUrl: string;
+  tags: string;
+  url: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
-  mode = 'DEBUG';
+  readonly MODE = 'DEBUG';
+  readonly DATA_SRC = 'https://naufik.net/stash/projects.json';
 
   data = [];
 
@@ -80,7 +92,7 @@ export class ProjectsService {
   }
 
   public getData() {
-    return this.mode === 'DEBUG' ? this.getDummyData() : this.data;
+    return this.MODE === 'DEBUG' ? this.getDummyData() : this.data;
   }
 
   public isValidProjectsRoute(key: string) {
@@ -101,5 +113,9 @@ export class ProjectsService {
 
   constructor(private http: HttpClient) {
     this.titles = new Set(this.getData().filter(x => !x.hidden).map(x => x.url));
+
+    this.http.get(this.DATA_SRC, { observe: 'response' }).subscribe((data: HttpResponse<ProjectsList>) => {
+      this.data = data.body.projects;
+    });
   }
 }
