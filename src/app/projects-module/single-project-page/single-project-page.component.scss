@@ -12,6 +12,20 @@
   ::ng-deep .text-center {
     text-align: center;
   }
+
+  ::ng-deep .bi-wleft {
+
+    grid-template-columns: auto;
+
+    @media(min-width: 800px) {
+      grid-template-columns: auto 1fr;
+    }
+
+    display: grid;
+    > :nth-child(2) {
+      padding: 15px;
+    }
+  }
 }
 
 
