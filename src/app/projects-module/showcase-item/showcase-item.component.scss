@@ -4,25 +4,50 @@
   margin-right: 5px;
   box-shadow: 4px 4px 3px darkslateblue;
   // height: minmax(200px, 100%);
-  min-height: 200px;
   // max-height: 200px;
+  grid-template-columns: auto 1fr;
   display: grid;
-  grid-template-columns: minmax(100px, 200px) 1fr;
-  min-width: 400px;
 
   > .img-container {
+    max-width: 30vw;
+    max-height: 30vw;
     overflow: hidden;
-    height: 100%;
-    max-height: 200px;
   }
+
+
+  @media(min-width: 600px){
+    grid-template-columns: minmax(100px, 200px) 1fr;
+    min-height: 200px;
+    min-width: 400px;
+    > .img-container {
+      overflow: hidden;
+      height: 100%;
+      max-height: 200px;
+    }
+    .showcase-img {
+      mask: linear-gradient(to right, black 160px, rgba(0,0,0,0.0) 200px);
+    }
+    div.showcase-desc {
+      display: block;
+    }
+  }
+
+  @media(max-width: 600px) {
+    div.showcase-desc {
+      display: none;
+    }
+    h2 {
+      margin-right: 8px;
+      font-size: 21px;
+    }
+  }
+
 
   h2, div.showcase-desc {
     padding-left: 10px;
-  }
-
-  h2 {
     font-weight: 400;
   }
+
 
   a {
     text-decoration: none;
@@ -53,8 +78,8 @@
 }
 
 .showcase-img {
-  mask: linear-gradient(to right, black 160px, rgba(0,0,0,0.0) 200px);
   height: 100%;
+  mask: linear-gradient(to right, black 28vw, rgba(0,0,0,0.0) 30vw);
 }
 
 // Nudge Animation
