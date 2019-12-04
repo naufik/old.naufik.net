@@ -10,7 +10,10 @@
 
   > .img-container {
     max-width: 30vw;
+    min-width: 30vw;
+    height: 32vw;
     overflow: hidden;
+    mask: linear-gradient(to right, black 28vw, rgba(0,0,0,0.0) 30vw);
   }
 
 
@@ -37,7 +40,8 @@
     }
     h2 {
       margin-right: 8px;
-      font-size: 21px;
+      font-size: 16px;
+      font-weight: 800;
     }
     div.showcase-desc {
       font-size: 12px;
@@ -47,7 +51,6 @@
 
   h2, div.showcase-desc {
     padding-left: 10px;
-    font-weight: 400;
   }
 
 
@@ -82,8 +85,7 @@
 .showcase-img {
   height: 100%;
   width: auto;
-  max-height: 30vw;
-  mask: linear-gradient(to right, black 28vw, rgba(0,0,0,0.0) 30vw);
+  max-height: 100%;
 }
 
 // Nudge Animation
