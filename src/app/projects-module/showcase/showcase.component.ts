@@ -15,6 +15,11 @@ export class ShowcaseComponent implements OnInit {
   getDataToShow() {
     return this.projects.getData().filter(x => !x.hidden);
   }
+
+  isDataLoaded(): boolean {
+    return this.projects.loaded;
+  }
+
   ngOnInit() {
   }
 

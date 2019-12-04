@@ -45,14 +45,29 @@
     background: darkslategray;
     color: white;
   }
-}
-
-.showcase-card:hover {
-  box-shadow: 1px 1px 18px darkslateblue;
+  &:hover {
+    box-shadow: 9px 9px 18px darkslateblue;
+    animation: nudge .15s linear;
+    transform: translateY(-5px);
+  }
 }
 
 .showcase-img {
-  mask: linear-gradient(to right, black 160px, rgba(0,0,0,0.0) 202px);
+  mask: linear-gradient(to right, black 160px, rgba(0,0,0,0.0) 200px);
   height: 100%;
+}
+
+// Nudge Animation
+
+@keyframes nudge {
+  0% {
+    transform: translateY(0px);
+    box-shadow: 4px 4px 3px darkslateblue;
+  }
+
+  100% {
+    transform: translateY(-5px);
+    box-shadow: 9px 9px 18px darkslateblue;
+  }
 }
 
