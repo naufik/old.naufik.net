@@ -18,8 +18,6 @@
   </div>
 </div>
 <div class="coolnav">
-cd <a [routerLink]="'/'">~</a> | <a [routerLink]="'/resume'">resume</a> | <a [routerLink]="'/projects'">projects</a> | <a class="wip" [routerLink]="'/articles'">blog</a> || <a href="http://github.com/naufik">github</a> | <a href="http://linkedin.com/in/naufik">linkedin</a> | <a href="mailto:naufal@naufik.net">naufal@naufik.net</a> (<a [routerLink]="''" (click)="copyEmail()">copy</a>)
+cd <a [routerLink]="'/'">~</a> | <a [routerLink]="'/resume'">resume</a> | <a [routerLink]="'/projects'">projects</a> | <a class="wip" [routerLink]="'/articles'">blog</a> || <a href="http://github.com/naufik">github</a> | <a href="http://linkedin.com/in/naufik">linkedin</a> | <a href="mailto:naufal@naufik.net">naufal@naufik.net</a> (<a *ngIf="!displayCopyMessage" [routerLink]="''" (click)="copyEmail()">copy</a><span *ngIf="displayCopyMessage">copied!</span>)
 </div>
-<div class="message" *ngIf="displayCopyMessage">
-  Copied to clipboard!
-</div>
+
