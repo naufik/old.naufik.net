@@ -10,7 +10,6 @@
 
   > .img-container {
     max-width: 30vw;
-    max-height: 30vw;
     overflow: hidden;
   }
 
@@ -33,12 +32,15 @@
   }
 
   @media(max-width: 600px) {
-    div.showcase-desc {
+    div.showcase-tags {
       display: none;
     }
     h2 {
       margin-right: 8px;
       font-size: 21px;
+    }
+    div.showcase-desc {
+      font-size: 12px;
     }
   }
 
@@ -79,6 +81,8 @@
 
 .showcase-img {
   height: 100%;
+  width: auto;
+  max-height: 30vw;
   mask: linear-gradient(to right, black 28vw, rgba(0,0,0,0.0) 30vw);
 }
 

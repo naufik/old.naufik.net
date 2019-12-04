@@ -20,6 +20,10 @@ a:visited {
   background: white;
 }
 
+img.inshow {
+  max-width: 80vh;
+}
+
 a.wip {
   color: $broken_link;
 }

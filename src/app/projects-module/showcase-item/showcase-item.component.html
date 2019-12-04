@@ -7,7 +7,7 @@
         <h2>{{ data.title }}</h2>
         <div class="showcase-desc">
           <p>{{ data.description }}</p>
-          <div *ngIf="data.tags"><p><strong>Tags: </strong>
+          <div class="showcase-tags" *ngIf="data.tags"><p><strong>Tags: </strong>
             <span  *ngFor="let tagstr of data.tags">
               <span class="tag">{{ tagstr }}</span>{{ " " }}</span></p>
             </div>
