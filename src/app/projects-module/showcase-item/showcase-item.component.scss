@@ -9,10 +9,11 @@
   display: grid;
 
   > .img-container {
-    max-width: 30vw;
-    min-width: 30vw;
-    height: 32vw;
     overflow: hidden;
+    height: 100%;
+    // We're using the hackish background solution for now.
+    background-size: auto 100%;
+    background-repeat: no-repeat;
     mask: linear-gradient(to right, black 28vw, rgba(0,0,0,0.0) 30vw);
   }
 
@@ -21,9 +22,11 @@
     grid-template-columns: minmax(100px, 200px) 1fr;
     min-height: 200px;
     min-width: 400px;
+
     > .img-container {
       overflow: hidden;
       height: 100%;
+      max-width: 200px;
       max-height: 200px;
     }
     .showcase-img {
@@ -45,6 +48,12 @@
     }
     div.showcase-desc {
       font-size: 12px;
+    }
+
+    > .img-container {
+      max-width: 30vw;
+      min-width: 30vw;
+      height: 30vw;
     }
   }
 

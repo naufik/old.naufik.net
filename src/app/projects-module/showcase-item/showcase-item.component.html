@@ -1,9 +1,9 @@
 <!-- <a [routerLink]="'view/' + data.url"> -->
   <div class="showcase-card clickable" [routerLink]="'view/' + data.url">
-    <div class="img-container">
-      <img class="showcase-img" [src]="data.imgUrl"/>
+    <div [style.background-image]="getBgUrl()" [style.width]="'auto'" [style.height]="getImageHeight() + 'px'" class="img-container">
+      <!-- <img class="showcase-img" [src]="data.imgUrl"/> -->
     </div>
-      <div>
+      <div #descriptor>
         <h2>{{ data.title }}</h2>
         <div class="showcase-desc">
           <p>{{ data.description }}</p>
