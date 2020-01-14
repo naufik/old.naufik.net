@@ -56,7 +56,6 @@ export class ShowcaseItemComponent implements OnInit {
       this.screenHeight = window.innerHeight;
       this.screenWidth = window.innerWidth;
       this.refresh();
-      console.log(this.screenHeight, this.screenWidth);
   }
 
   refresh() {
